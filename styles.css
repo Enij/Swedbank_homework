@@ -1,0 +1,309 @@
+/* reset css */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body {
+    --primary-yellow: #FDC129;
+    --primary-light: #FBDD91;
+    --primary-lighter: #FFF3D5;
+
+    --brand-brown: #2F2424;
+    --brand-orange: #EE7023;
+    --brand-pink: #EFB7B6;
+    --brand-turquoise: #31A3AE;
+    --brand-turquoise-light: #8ACDC3;
+    --brand-turquoise-lighter: #EBF8F2;
+
+    --custom-turquoise: #BCD8DB;
+    --custom-teal: #257886;
+    --custom-mahogany: #4C2D2C;
+    --custom-pink: #FDF8F4;
+    --custom-peach: #FFF1CD;
+    --custom-brown: #896F6F;
+    --custom-gray: #F7F5F3;
+    --custom-brownish: #512b2b;
+
+    --text-default: #2F2424;
+    --text-muted: #72605E;
+    --text-muted-light: #A38B80;
+    --text-disabled: #D4C4BC;
+
+    --bg-orange: #FFF1E4;
+    --bg-turquoise: #EBF8F2;
+    --bg-brown: #EBE7E2;
+    --bg-gray: #F9F8F6;
+    --bg-white: #FFFFFF;
+
+    --custom-overlay: #512b2b99;
+
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body:has(swed-nav-item:hover) .content {
+    pointer-events: none;
+
+    &::before {
+        background-color: var(--custom-overlay);
+    }
+}
+
+button {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+    line-height: 18px;
+    transition: color 0.3s ease-out;
+    display: inline-block;
+    -webkit-appearance: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 18px;
+    padding: 13px 15px;
+
+    &.primary {
+        background: none var(--brand-orange);
+        border: 1px solid var(--brand-orange);
+    }
+
+    &.secondary {
+        background: none var(--brand-turquoise);
+        border: 1px solid var(--brand-turquoise);
+    }
+}
+
+.tab ul li button {
+    background-color: var(--custom-gray);
+    height: 50px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--custom-peach);
+    }
+
+    &.active {
+        background-color: var(--bg-white);
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    swed-menu img {
+        display: none;
+    }
+
+    swed-nav-item {
+        justify-content: flex-start;
+        padding-left: 1rem;
+    }
+
+    swed-layout main .content:before {
+        top: 185px;
+    }
+
+    .input-wrapper {
+        align-items: flex-start;
+        padding: 32px 20px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    .payment-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .about {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.75rem;
+        gap: 1rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .footer-lists {
+        flex-direction: column;
+
+        ul {
+
+            &:nth-child(n+2) {
+                border-top: solid 1px var(--custom-brown);
+            }
+
+            &:nth-last-child(1) {
+                border-bottom: solid 1px var(--custom-brown);
+            }
+            li {
+                padding-left: 1rem;
+            }  
+        }
+
+         
+    }
+
+    swed-calculator section {
+        flex-direction: column;
+
+        .input-wrapper input:first-of-type {
+            width: 100%;
+            padding: 0;
+        }
+
+        label {
+            width: 100%;
+        }
+
+        .custom-width {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: 641px) {
+    nav ul {
+        flex-direction: row;
+
+        swed-nav-item {
+            width: 50%;
+        }
+    }
+
+    .logo-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px;
+
+        .burger-menu {
+            display: block;
+        }
+    }
+
+    swed-nav-item {
+        justify-content: center;
+    }
+
+    swed-layout {
+        main {
+            flex: 1 0 auto;
+        }
+    }
+
+    .input-wrapper {
+        padding: 32px 20px;
+        margin: 0 auto;
+    }
+
+    swed-payment {
+        .input-wrapper {
+            width: 50%;
+        }
+    }
+
+    swed-payment form > section > div > div {
+        display: flex;
+        margin: 0.75rem 0;
+        align-items: center;
+
+        .custom-width {
+            width: 400px;
+            max-width: 400px;
+        }
+
+        .custom-width input {
+            width: 100%;
+
+            &+ select {
+                width: 200px;
+            }
+        }
+
+        label {
+            width: 150px;
+            text-align: right;
+        }
+    }
+
+    swed-calculator {
+        margin: 0 auto;
+
+        .input-wrapper input:first-of-type {
+            width: 200px;
+        }
+
+        label {
+            width: 150px;
+            margin-right: 0.75rem;
+            text-align: right;
+        }
+
+        .custom-width {
+            width: 100px;
+            max-width: 100px;
+        }
+
+        .wrapper {
+            border-left: 1px solid var(--bg-brown);
+            width: 33%;
+            padding-left: 1rem;
+        }
+    }
+
+    .payment-actions {
+        gap: 1rem;
+    }
+
+    .about {
+        align-items: center;
+        padding: 1rem;
+
+        .info {
+            padding-left: 1rem;
+        }
+    }
+
+    .actions {
+        align-items: center;
+    }
+
+    .footer-lists {
+        padding: 0 1rem;
+    }
+}
